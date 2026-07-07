@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: 'file:/app/db/prod.db'
+    volumes:
+      - ntd_db:/app/db
+
+volumes:
+  ntd_db:
