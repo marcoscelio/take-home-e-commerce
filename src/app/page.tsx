@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PackageSearch } from 'lucide-react'
-import { queryProducts, getCategories, type ProductQuery } from '@/server/actions/products'
+import { queryProducts, getCategories, type ProductQuery } from '@/server/services/products'
 import { ProductCard } from '@/components/product-card'
 import { StorefrontFilters } from '@/components/storefront-filters'
 

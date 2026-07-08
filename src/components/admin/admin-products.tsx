@@ -27,9 +27,13 @@ export function AdminProducts({ products }: { products: AdminProduct[] }) {
   function remove(p: AdminProduct) {
     if (!confirm(`Delete "${p.name}"? This cannot be undone.`)) return
     startTransition(async () => {
-      await deleteProductAction(p.id)
-      toast.success('Product deleted')
-      router.refresh()
+      const res = await deleteProductAction(p.id)
+      if (res.ok) {
+        toast.success('Product deleted')
+        router.refresh()
+      } else {
+        toast.error(res.error)
+      }
     })
   }
 
